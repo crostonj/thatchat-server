@@ -3,7 +3,7 @@ let Schema = mongoose.Schema;
 
 let schema = Schema({
     content: {type: String, required: true},
-    user: {type: String, ref: 'User'},
+    user: {type: String, required: true},
     datetime: {type: String, required: true},
     messageId: {type: Schema.Types.ObjectId},
 });

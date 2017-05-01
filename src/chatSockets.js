@@ -4,7 +4,7 @@ module.exports = chatSocket = function() {
                 io.on('connection', function(socket) {
                     console.log('connected!');
                     socket.on('new message', function(data) {
-                        console.log(data);
+                        console.log('Chatupdate');
                         // we tell the client to execute 'new message'
                         socket.broadcast.emit('chatUpdate');
                     });
