@@ -6,11 +6,11 @@ var chatsocket = require('./src/chatSockets')();
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
-let mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 
 
-mongoose.connect('mongodb://localhost:27017/thatchat');
+mongoose.connect('mongodb://database:27017/thatchat');
 
 //app.use(cors());
 app.use(function(req, res, next) {
@@ -94,7 +94,7 @@ function onError(error) {
         throw error;
     }
 
-    let bind = typeof port === 'string' ?
+    var bind = typeof port === 'string' ?
         'Pipe ' + port :
         'Port ' + port;
 

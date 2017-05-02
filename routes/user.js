@@ -36,6 +36,22 @@ var router = function(){
         });
     });
 
+
+    userRouter.get('/:id', function(req, res){
+        User.findById(req.params.id, function(err, user){
+            if (err) {
+                return res.status(500).json({
+                    title: 'An error occurred',
+                    error: err
+                });
+            }
+            res.status(200).json({
+                message: 'Success',
+                user: user
+            });
+
+        });
+    });
     userRouter.route('/signin').post(function(req, res) {
         User.findOne({email: req.body.email}, function(err, user) {
             if (err) {

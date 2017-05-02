@@ -1,7 +1,7 @@
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-let schema = Schema({
+var schema = Schema({
     content: {type: String, required: true},
     user: {type: String, required: true},
     datetime: {type: String, required: true},

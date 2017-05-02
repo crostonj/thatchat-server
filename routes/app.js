@@ -1,5 +1,5 @@
-let express = require('express');
-let appRouter = express.Router();
+var express = require('express');
+var appRouter = express.Router();
 
 var router = function(){
     appRouter.use(function (req, res, next) {
