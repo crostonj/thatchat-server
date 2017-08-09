@@ -1,4 +1,3 @@
-
 var express = require('express');
 var app = express();
 var http = require('http');
@@ -10,15 +9,15 @@ var mongoose = require('mongoose');
 
 
 
-mongoose.connect('mongodb://database:27017/thatchat');
+mongoose.connect('mongodb://localhost:27017/thatchat');
 
 //app.use(cors());
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.header("Access-Control-Allow-Credentials", "false");
-  next();
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header("Access-Control-Allow-Credentials", "false");
+    next();
 });
 
 app.use(bodyParser.json());
@@ -34,7 +33,7 @@ var appRoutes = require('./routes/app')();
 var messageRoutes = require('./routes/message')();
 var userRoutes = require('./routes/user')();
 
-var port = 5000;//normalizePort(process.env.PORT || '5000');
+var port = 5000; //normalizePort(process.env.PORT || '5000');
 
 app.use('/user', userRoutes);
 app.use('/message', messageRoutes);
@@ -42,11 +41,11 @@ app.use('/', appRoutes);
 
 
 var server = http.createServer(app);
- var io = require('socket.io')(server);
- chatsocket.Init(io);
+var io = require('socket.io')(server);
+chatsocket.Init(io);
 
 
- server.listen(port);
+server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 

@@ -1,4 +1,4 @@
 How to use:
 
-1) start the mongo database: docker start practical_fermat
+1) start the mongo database: docker start mongod
 
